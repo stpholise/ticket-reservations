@@ -1,10 +1,14 @@
+import { QuickLink, Event, SocialLink, FooterLink } from "@/types";
 
-import { QuickLink, Event } from "@/types";
-
-
+import {
+  FaXTwitter,
+  FaFacebookF,
+  FaInstagram,
+  FaTiktok,
+} from "react-icons/fa6";
 
 export const navigations: QuickLink[] = [
-  { title: "Discover events", url: "discover" },
+  { title: "Discover events", url: "/discover" },
   {
     title: "How TicketDays Works",
     url: "/how-ticketdays-work",
@@ -17,13 +21,7 @@ export const navigations: QuickLink[] = [
     title: "About us",
     url: "/about",
   },
-   
-  
 ];
-
-
-
-
 
 export const events: Event[] = [
   {
@@ -241,5 +239,47 @@ export const events: Event[] = [
     },
     featured: false,
     tags: ["Startups", "Networking", "Founders"],
+  },
+];
+
+export const companyLinks: FooterLink[] = [
+  {
+    label: "Homepage",
+    href: "/home",
+  },
+  {
+    label: "About Us",
+    href: "/about",
+  },
+  {
+    label: "How Tix Works",
+    href: "/how-tix-works",
+  },
+  {
+    label: "Blog",
+    href: "https://blog.tix.africa/",
+  },
+];
+
+export const socialLinks: SocialLink[] = [
+  {
+    label: "Facebook",
+    href: "https://facebook.com/tixdotafrica",
+    icon: FaFacebookF,
+  },
+  {
+    label: "X (Twitter)",
+    href: "https://twitter.com/tixdotafrica",
+    icon: FaXTwitter,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/tixdotafrica/",
+    icon: FaInstagram,
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@tixdotafrica",
+    icon: FaTiktok, // Replace with a TikTok icon from your icon library.
   },
 ];
