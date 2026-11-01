@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa6";
 
 export const navigations: QuickLink[] = [
-  { title: "Discover events", url: "discover" },
+  { title: "Discover events", url: "/discover" },
   {
     title: "How TicketDays Works",
     url: "/how-ticketdays-work",

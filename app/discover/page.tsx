@@ -1,11 +1,17 @@
+"use server";
+
 import { IoLocationOutline } from "react-icons/io5";
 import { FiChevronDown } from "react-icons/fi";
 import { events } from "@/data";
-
+// import { getEvents } from "./components/fetchEvents";
 import LatestEvents from "@/components/card/LatestEvents";
 import PopularEvents from "@/components/card/PopularEvents";
+import Addvert from "@/components/cell/Addvert";
 
-const page = () => {
+const page = async () => {
+  // const myEvents = await getEvents();
+
+  // console.log(myEvents);
   return (
     <div className="pt-10 text-gray-500 ">
       <div className=" md:px-8 px-6 lg:px-18">
@@ -24,19 +30,7 @@ const page = () => {
       </div>
 
       <div className="md:px-8 px-6 lg:px-18 mb-8">
-        <div className="rounded-3xl p-4 md:py-6 md:px-12  h-36 lg:h-46 bg-black flex flex-row overflow-y-hidden">
-          <div className=" animate-slide-cycle flex flex-col ">
-            <h3 className=" text-lg md:text-3xl font-semibold text-white font-">
-              Never miss an event
-            </h3>
-            <h3 className=" text-base md:text-3xl font-semibold text-primary ">Get Orbit</h3>
-
-            <div className="pt-4 w-40 md:max-w-3xs flex gap-4 mt-auto">
-              <div className="border border-gray-600 rounded-md p-1 h-8 md:h-10 w-1/2 "></div>
-              <div className="border border-gray-600 rounded-md p-1 h-8 md:h-10 w-1/2"></div>
-            </div>
-          </div>
-        </div>
+        <Addvert />
       </div>
 
       <div className="py-8 px-4 lg:px-18 flex gap-6">
@@ -72,7 +66,10 @@ const page = () => {
             <PopularEvents key={event.id} event={event} />
           ))}
         </div>
-         <button className=" w-full md:w-120 bg-primary font-medium text-base text-white py-3 px-4 rounded-md mx-auto my-14 block"> See all events</button>
+        <button className=" w-full md:w-120 bg-primary font-medium text-base text-white py-3 px-4 rounded-md mx-auto my-14 block">
+          {" "}
+          See all events
+        </button>
       </div>
     </div>
   );

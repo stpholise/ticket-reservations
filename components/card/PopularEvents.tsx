@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const PopularEvents = ({ event }: { event: Event }) => {
   return (
-    <Link href={''}>
+    <Link href={`/discover/${event.id}`} className="block">
       <div className="border border-gray-200 flex justify-between p-4 rounded-xl shadow-sm">
         <div className=" flex flex-col gap-2 w-8/12">
           <h5 className=" text-base md:text-xl font-black text-black">
