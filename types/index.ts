@@ -1,3 +1,5 @@
+
+import type { IconType } from "react-icons";
 export type QuickLink = {
   title: string;
   url: string;
@@ -36,4 +38,13 @@ export interface Event {
   };
   featured: boolean;
   tags: string[];
+}
+
+export interface FooterLink {
+  label: string;
+  href: string;
+}
+
+export interface SocialLink extends FooterLink {
+  icon: IconType;
 }
