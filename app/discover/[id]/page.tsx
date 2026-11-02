@@ -9,6 +9,9 @@ import {
   IoTimeOutline,
 } from "react-icons/io5";
 import Addvert from "@/components/cell/Addvert";
+import { Suspense } from "react";
+import ErrorWrapper from "@/components/ErrorWrapper";
+import Map from "@/components/Map";
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
@@ -22,8 +25,35 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <div className=" px-4 sm:px-8 lg:px-18">
       <p className="py-6">
-        <span className="text-gray-500">Discover</span> / {}
+        <span className="text-gray-500">Discover</span> /{" "}
+        <span className="text-black text-lg font-semibold"> {event.title}</span>
       </p>
+      <Suspense
+        fallback={
+          <div className="flex justify-center py-12 text-black">
+            <span className="inline-flex items-center text-black">
+              <span className="text-2xl font-semibold animate-pulse ">
+                {" "}
+                Loading Event
+              </span>
+              <span className="ml-1 mt-auto mb-1 flex  text-xl items-end gap-1">
+                <span className="animate-pulse ">
+                  <div className="bg-black rounded-full size-2" />
+                </span>
+                <span className="animate-pulse [animation-delay:200ms]">
+                  <div className="bg-black rounded-full size-2" />
+                </span>
+                <span className="animate-pulse [animation-delay:400ms]">
+                  <div className="bg-black rounded-full size-2" />
+                </span>
+              </span>
+            </span>
+          </div>
+        }
+      >
+        <ErrorWrapper title="Error Getting this event"></ErrorWrapper>
+      </Suspense>
+
       <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] md:gap-8 lg:gap-16 py-4">
         <div className="md:sticky top-20 h-fit">
           <div className="rounded-xl overflow-hidden ">
@@ -61,8 +91,38 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
             </p>
           </div>
 
-          <div className="py-8 border-t-2"></div>
+          <div className="py-8 border-t-2">
+            <h5 className="text-lg text-black font-black mb-3">Lineup</h5>
+          </div>
+          <div className="py-8 border-t-2">
+            <h5 className="text-lg text-black font-black mb-3">
+              About this event{" "}
+            </h5>
+
+            <p className="text-gray-600">{event.description}</p>
+          </div>
           <Addvert />
+          <div className="py-8 border-b-2">
+            <h5 className="text-lg text-black font-black mb-3">Organizer </h5>
+
+            <p className="text-gray-600 flex items-center gap-2">
+              {" "}
+              <Image
+                src={event.organizer.avatar}
+                alt={"organizer"}
+                width={100}
+                height={100}
+                className="size-14 rounded-full"
+              />{" "}
+              <span className=" text-black font-semibold">
+                {event.organizer.name}
+              </span>
+            </p>
+          </div>
+          <div className="py-8 pb-10 border-b-2">
+            <h5 className="text-lg text-black font-black mb-3">Direction </h5>
+            <Map />
+          </div>
         </div>
       </div>
     </div>
