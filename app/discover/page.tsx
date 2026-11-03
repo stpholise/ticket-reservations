@@ -5,8 +5,13 @@ import { FiChevronDown } from "react-icons/fi";
 import { events } from "@/data";
 // import { getEvents } from "./components/fetchEvents";
 import LatestEvents from "@/components/card/LatestEvents";
-import PopularEvents from "@/components/card/PopularEvents";
+// import PopularEvents from "@/components/card/PopularEvents";
 import Addvert from "@/components/cell/Addvert";
+import SuspenseFallback from "@/components/cell/SuspenseFallback";
+import { Suspense } from "react";
+import ErrorWrapper from "@/components/ErrorWrapper";
+import PopularEventsWrapper from "./components/PopularEventsWrapper";
+import PopularEvents from "@/components/card/PopularEvents";
 
 const page = async () => {
   // const myEvents = await getEvents();
@@ -61,11 +66,18 @@ const page = async () => {
             See all
           </button>
         </div>
-        <div className="grid md:grid-cols-2 gap-4 md:gap-8">
-          {events.map((event) => (
-            <PopularEvents key={event.id} event={event} />
-          ))}
-        </div>
+         <Suspense fallback={<SuspenseFallback />}>
+        <ErrorWrapper title="Error Getting events">
+          <PopularEventsWrapper />
+        </ErrorWrapper>
+      </Suspense>
+{/* 
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8">
+      {events.map((event) => (
+        <PopularEvents key={event.id} event={event} />
+      ))}
+    </div> */}
+      
         <button className=" w-full md:w-120 bg-primary font-medium text-base text-white py-3 px-4 rounded-md mx-auto my-14 block">
           {" "}
           See all events
