@@ -11,12 +11,11 @@ import SuspenseFallback from "@/components/cell/SuspenseFallback";
 import { Suspense } from "react";
 import ErrorWrapper from "@/components/ErrorWrapper";
 import PopularEventsWrapper from "./components/PopularEventsWrapper";
-import PopularEvents from "@/components/card/PopularEvents";
+// import PopularEvents from "@/components/card/PopularEvents";
 
 const page = async () => {
-  // const myEvents = await getEvents();
+  
 
-  // console.log(myEvents);
   return (
     <div className="pt-10 text-gray-500 ">
       <div className=" md:px-8 px-6 lg:px-18">
@@ -78,10 +77,7 @@ const page = async () => {
       ))}
     </div> */}
       
-        <button className=" w-full md:w-120 bg-primary font-medium text-base text-white py-3 px-4 rounded-md mx-auto my-14 block">
-          {" "}
-          See all events
-        </button>
+       
       </div>
     </div>
   );

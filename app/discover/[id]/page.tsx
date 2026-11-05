@@ -1,19 +1,8 @@
-// import PryButton from "@/components/buttons/PryButton";
-// import Image from "next/image";
-// import { events } from "@/data";
-// import { notFound } from "next/navigation";
-// import { formatDate } from "@/lib";
-// import {
-//   IoCalendarOutline,
-//   IoLocationOutline,
-//   IoTimeOutline,
-// } from "react-icons/io5";
-// import Addvert from "@/components/cell/Addvert";
+ 
 import { Suspense } from "react";
 import ErrorWrapper from "@/components/ErrorWrapper";
 
 import SuspenseFallback from "@/components/cell/SuspenseFallback";
-// import MapWrapper from "@/components/cell/MapWrapper";
 import EventDetails from "@/components/cell/EventDetails";
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
@@ -27,10 +16,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   // }
   return (
     <div className=" px-4 sm:px-8 lg:px-18">
-      <p className="py-6">
-        <span className="text-gray-500">Discover</span> /{" "}
-        {/* <span className="text-black text-lg font-semibold"> {event.title}</span> */}
-      </p>
+    
       <Suspense fallback={<SuspenseFallback />}>
         <ErrorWrapper title="Error Getting this event">
         <EventDetails params={params} />

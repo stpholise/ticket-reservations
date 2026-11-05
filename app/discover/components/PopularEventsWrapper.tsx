@@ -11,8 +11,6 @@ const PopularEventsWrapper = async () => {
 
   console.log(response);
 
-   
-
   if (!response.ok) {
     throw new Error(`Failed to fetch events: ${response.status}`);
   }
@@ -30,10 +28,16 @@ const PopularEventsWrapper = async () => {
   }
 
   return (
-    <div className="grid md:grid-cols-2 gap-4 md:gap-8">
-      {events.map((event) => (
-        <PopularEvents key={event.id} event={event} />
-      ))}
+    <div className="">
+      <div className="grid md:grid-cols-2 gap-4 md:gap-8">
+        {events.map((event) => (
+          <PopularEvents key={event.id} event={event} />
+        ))}
+      </div>
+      <button className=" w-full md:w-120 bg-primary font-medium text-base text-white py-3 px-4 rounded-md mx-auto my-14 block">
+        {" "}
+        See all events
+      </button>
     </div>
   );
 };
