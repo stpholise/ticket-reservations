@@ -10,8 +10,8 @@ const ErrorFallback = (
   const message =
     error instanceof Error ? error.message : "Internal server Error";
   return (
-    <div className=" w-full max-w-4xl flex items-center justify-center gap-4 flex-col ">
-      <h2 className="text-2xl text-dark-green ">{props.title}</h2>
+    <div className=" w-full max-w-4xl flex items-center justify-center gap-4 flex-col text-gray-500">
+      <h2 className="text-2xl text-gray-500 font-semibold">{props.title}</h2>
       <p className="text-sm">{message} this may be due to network </p>
       <PryButton onClick={() => retry()} text={"Try again"} />
     </div>

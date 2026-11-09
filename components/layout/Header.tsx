@@ -23,16 +23,18 @@ const Header = () => {
   };
   return (
     <div className="sticky top-0 z-50 backdrop-blur-md py-2">
-      <div className="mx-auto flex max-w-8xl items-center justify-between px-2 sm:px-8 md:px-18 py-3 md:gap-14">
+      <div className="mx-auto flex max-w-8xl items-center justify-between px-2 sm:px-8 lg:px-18 py-3 md:gap-14">
         <Link
           href={"/"}
           aria-label="TicketDays Home"
           className="font-helvetica text-primary"
         >
-          <p className=" py-2 px-4 text-xl font-medium">TicketDays</p>
+          <p className=" py-2 px-4 md:px-0 text-xl md:text-2xl font-medium">
+            TicketDays
+          </p>
         </Link>
 
-        <div className="hidden items-center gap-22 md:flex">
+        <div className="hidden items-center gap-22 lg:flex">
           <nav className="flex items-center gap-8 font-helvetica">
             {navigations.map((item, i) => (
               <Link
@@ -65,17 +67,17 @@ const Header = () => {
             </Link>
             <Link
               href={"/"}
-              className="py-2 px-5 rounded-md bg-primary text-white font-medium"
+              className="whitespace-nowrap py-2 px-5 rounded-md bg-primary text-white font-medium"
             >
               Sign Up
             </Link>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:hidden">
           <button className="cursor-pointer">
             {" "}
-            <RiSearch2Line className="text-black size-6" />
+            <RiSearch2Line className="text-black size-6 md:size-10" />
           </button>
           <button
             type="button"
@@ -85,7 +87,7 @@ const Header = () => {
             onClick={handleOpenMenu}
             className="rounded-lg p-2 text-white hover:bg-white/10"
           >
-            <RxHamburgerMenu className="text-black size-8 h-6" />
+            <RxHamburgerMenu className="text-black size-8  h-6 md:size-10" />
           </button>
         </div>
 
@@ -93,14 +95,14 @@ const Header = () => {
         {showMenu && (
           <div
             className={clsx(
-              "fixed inset-0 h-screen z-50 bg-black/60 md:hidden transition-opacity",
+              "fixed inset-0 h-screen z-50 bg-black/60 lg:hidden transition-opacity",
               openMenu ? "visible opacity-100" : "invisible opacity-0",
             )}
             onClick={handleCloseMenu}
           >
             <nav
               className={clsx(
-                "relative flex flex-col gap-4 h-full w-10/12 max-w-sm bg-gray-100 pt-22 shadow-xl px-4",
+                "relative flex flex-col gap-4 h-full w-10/12  max-w-md bg-gray-100 pt-22 shadow-xl px-4",
                 openMenu ? "animate-slide-in" : "animate-slide-out",
               )}
             >
@@ -112,8 +114,10 @@ const Header = () => {
                   aria-current={pathname === item.url ? "page" : undefined}
                   tabIndex={openMenu ? undefined : -1}
                   className={clsx(
-                    " p-3 pb-4 border-b text-xl font-semibold capitalize transition-colors hover:text-amber-600",
-                    pathname === item.url ? "text-amber-600" : "text-gray-700",
+                    " p-3 pb-4 border-b-2 text-xl font-semibold capitalize transition-colors hover:text-amber-600",
+                    pathname === item.url
+                      ? "text-amber-600 border-b-amber-400 "
+                      : "text-gray-700 border-b-gray-400 ",
                   )}
                 >
                   {item.title}
@@ -128,7 +132,7 @@ const Header = () => {
                 </Link>
                 <Link
                   href={"/"}
-                  className="py-2 px-5 w-1/2 rounded-md bg-primary text-white font-medium"
+                  className=" whitespace-nowrap  py-2 px-5 w-1/2 rounded-md bg-primary text-white font-medium"
                 >
                   Sign Up
                 </Link>

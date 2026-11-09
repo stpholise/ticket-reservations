@@ -17,7 +17,7 @@
   --font-mono: var(--font-geist-mono);
   --animate-slide-in: slide-in 400ms ease-in-out forwards;
   --animate-slide-out: slide-out 300ms ease-in forwards;
-  --animate-slide-up: slide-up 500ms ease-in-out infinite;
+  --animate-slide-up: slide-up 500ms ease-in-out forwards;
   --animate-slide-cycle: slide-cycle 5s ease-in-out infinite;
 }
 
@@ -47,11 +47,11 @@ body {
 }
 
 @keyframes slide-up {
-  from {
-    transform: translateY(-120%);
+  0% {
+    transform: translateY(100%);
     opacity: 0;
   }
-  to {
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
@@ -68,28 +68,6 @@ body {
   }
 }
 
-/* @keyframes slide-cycle {
-    0%, 60% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    70% {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-
-    71% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-
-    80%, 100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  } */
-
 @keyframes slide-cycle {
   0% {
     transform: translateY(100%);
@@ -101,7 +79,8 @@ body {
     opacity: 1;
   }
 
-  40%,75% {
+  40%,
+  75% {
     transform: translateY(0);
     opacity: 1;
   }
@@ -111,5 +90,4 @@ body {
     transform: translateY(30);
     opacity: 0;
   }
-   
 }

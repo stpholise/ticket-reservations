@@ -1,6 +1,6 @@
 const Addvert = () => {
   return (
-    <div className="rounded-3xl p-4 md:py-6 md:px-12  h-36 lg:h-46 bg-black flex flex-row overflow-y-hidden w-full">
+    <div className="rounded-3xl p-4 lg:py-6 md:px-12  h-36 md:h-42 lg:h-46 bg-black flex flex-row overflow-y-hidden w-full">
       <div className=" animate-slide-cycle flex flex-col ">
         <h3 className=" text-lg md:text-2xl font-semibold text-white font-">
           Never miss an event
