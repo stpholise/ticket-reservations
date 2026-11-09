@@ -1,4 +1,4 @@
-import { formatDate } from "@/lib";
+import { formatDateDay } from "@/lib";
 import type { Event } from "@/types";
 import Image from "next/image";
 
@@ -20,7 +20,7 @@ const LatestEvents = ({ event }: { event: Event }) => {
           <h3 className=" text-white font-black text-2xl text-center">
             {event.title}
           </h3>
-          <p className="text-white text-center">{formatDate(event.startsAt)}</p>
+          <p className="text-white text-center">{formatDateDay(event.startsAt)}</p>
         </div>
       </div>
     </div>

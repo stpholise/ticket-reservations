@@ -1,39 +1,73 @@
 "use client";
 
 import { useState } from "react";
-import { eventCategories, EventCategory } from "@/data";
+import clsx from "clsx";
+ 
+import { IoCloseOutline, IoCheckmark } from "react-icons/io5";
 
-const EventFilterModal = () => {
-  const [selectedCategory, setSelectedCategory] =
-    useState<EventCategory>("all");
+const EventFilterModal = ({
+  setShowModal,
+  modalState,
+  value,
+  setValue,
+  title,
+  valuesArray,
+}: {
+  value: string;
+  modalState: boolean;
+  setShowModal: (val: boolean) => void;
+  setValue: (val: string) => void;
+  title: string;
+  valuesArray:readonly { label:string, value: string}[];
+}) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>(value);
+  const handleSubmit = () => {
+    setValue(selectedCategory);
+    setShowModal(false);
+  };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-
+    <div
+      onClick={() => setShowModal(false)}
+      className="fixed inset-0 h-screen z-50 flex items-center justify-center bg-black/50 p-4 transition-opacity"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className={clsx(
+          "absolute bottom-0 flex flex-col gap-4 w-full duration-300 max-w-lg rounded-t-2xl bg-white p-6 shadow-xl z-60",
+          modalState ? " animate-slide-up" : "animate-slide-out",
+        )}
+      >
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-xl font-bold">Filter Events</h2>
+          <h2 className="text-xl font-bold">{title}</h2>
 
-          <button type="button">✕</button>
+          <button onClick={() => setShowModal(false)} type="button" className="cursor-pointer" >
+            <IoCloseOutline className="size-6" />
+          </button>
         </div>
 
-        <div className="space-y-3">
-          {eventCategories.map((category) => (
-            <label
+        <div className="space-y-3 overflow-y-scroll scrollbar-none mask-ellipse  max-h-80">
+          {valuesArray.map((category) => (
+            <button
+              type="button"
+              onClick={() => setSelectedCategory(category.value)}
               key={category.value}
-              className="flex cursor-pointer items-center justify-between rounded-xl border p-4 transition hover:bg-gray-50"
+              className={clsx(
+                "flex  cursor-pointer items-center justify-between border-b-2 border-b-gray-300 py-2 transition hover:bg-gray-50 w-full",
+                selectedCategory === category.value
+                  ? "text-primary border-b-primary"
+                  : "text-gray-600",
+              )}
             >
               <span className="font-medium">{category.label}</span>
-
-              <input
-                type="radio"
-                name="eventCategory"
-                value={category.value}
-                checked={selectedCategory === category.value}
-                onChange={() => setSelectedCategory(category.value)}
-                className="h-4 w-4 accent-purple-600"
-              />
-            </label>
+              <span className="  ">
+                {selectedCategory === category.value ? (
+                  <IoCheckmark className="sizze-6" />
+                ) : (
+                  ""
+                )}
+              </span>
+            </button>
           ))}
         </div>
 
@@ -41,19 +75,19 @@ const EventFilterModal = () => {
           <button
             type="button"
             onClick={() => setSelectedCategory("all")}
-            className="flex-1 rounded-xl border px-4 py-3 font-semibold"
+            className={"flex-1 rounded-lg border px-4 py-3 font-semibold"}
           >
             Reset
           </button>
 
           <button
+            onClick={handleSubmit}
             type="button"
-            className="flex-1 rounded-xl bg-purple-600 px-4 py-3 font-semibold text-white"
+            className="flex-1 rounded-lg bg-primary px-4 py-3 font-semibold text-white"
           >
             Apply Filters
           </button>
         </div>
-
       </div>
     </div>
   );

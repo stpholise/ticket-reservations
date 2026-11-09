@@ -67,7 +67,7 @@ const Header = () => {
             </Link>
             <Link
               href={"/"}
-              className="py-2 px-5 rounded-md bg-primary text-white font-medium"
+              className="whitespace-nowrap py-2 px-5 rounded-md bg-primary text-white font-medium"
             >
               Sign Up
             </Link>
@@ -132,7 +132,7 @@ const Header = () => {
                 </Link>
                 <Link
                   href={"/"}
-                  className="py-2 px-5 w-1/2 rounded-md bg-primary text-white font-medium"
+                  className=" whitespace-nowrap  py-2 px-5 w-1/2 rounded-md bg-primary text-white font-medium"
                 >
                   Sign Up
                 </Link>

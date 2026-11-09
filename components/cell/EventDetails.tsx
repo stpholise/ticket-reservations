@@ -2,6 +2,7 @@ import Image from "next/image";
 import PryButton from "../buttons/PryButton";
 import Addvert from "./Addvert";
 import MapWrapper from "./MapWrapper";
+import Link from "next/link";
 import {
   IoCalendarOutline,
   IoLocationOutline,
@@ -26,7 +27,7 @@ const EventDetails = async ({
   return (
     <div className="">
       <p className="py-6">
-        <span className="text-gray-500">Discover</span> /{" "}
+        <Link href={"/discover"} className="text-gray-500">Discover</Link> /{" "}
         <span className="text-black text-lg font-semibold"> {event.title}</span>
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] md:gap-8 lg:gap-16 py-4">
@@ -68,9 +69,7 @@ const EventDetails = async ({
             </p>
           </div>
 
-          <div className="py-8 border-t-2">
-            <h5 className="text-lg text-black font-black mb-3">Lineup</h5>
-          </div>
+        
           <div className="py-8 border-t-2">
             <h5 className="text-lg text-black font-black mb-3">
               About this event{" "}
@@ -79,23 +78,7 @@ const EventDetails = async ({
             <p className="text-gray-600">{event.description}</p>
           </div>
           <Addvert />
-          {/* <div className="py-8 border-b-2">
-          <h5 className="text-lg text-black font-black mb-3">Organizer </h5>
-
-          <p className="text-gray-600 flex items-center gap-2">
-            {" "}
-            <Image
-              src={event.organizer.avatar}
-              alt={"organizer"}
-              width={100}
-              height={100}
-              className="size-14 rounded-full"
-            />{" "}
-            <span className=" text-black font-semibold">
-              {event.organizer.name}
-            </span>
-          </p>
-        </div> */}
+         
           <div className="py-8 pb-10 border-b-2">
             <h5 className="text-lg text-black font-black mb-3">Direction </h5>
             <MapWrapper />

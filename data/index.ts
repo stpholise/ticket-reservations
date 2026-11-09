@@ -302,3 +302,53 @@ export const eventCategories = [
   { label: "Food & Drink", value: "food-drink" },
 ] as const
 export type EventCategory = (typeof eventCategories)[number]["value"];
+
+
+export type FilterType = "category" | "price" | "date";
+
+type FilterOption = {
+  label: string;
+  value: string;
+};
+
+type FilterConfig = {
+  title: string;
+  valuesArray: FilterOption[];
+};
+
+export const filterOptions: Record<FilterType, FilterConfig> = {
+  category: {
+    title: "Category",
+    valuesArray: [
+      { label: "All Events", value: "all" },
+      { label: "Community", value: "community" },
+      { label: "Art & Culture", value: "art-culture" },
+      { label: "Sports & Wellness", value: "sports-wellness" },
+      { label: "Career & Business", value: "career-business" },
+      { label: "Spirituality & Religion", value: "spirituality-religion" },
+      { label: "Food & Drink", value: "food-drink" },
+    ],
+  },
+
+  price: {
+    title: "Price",
+    valuesArray: [
+      { label: "All Prices", value: "all" },
+      { label: "Free", value: "free" },
+      { label: "Paid", value: "paid" },
+    ],
+  },
+
+  date: {
+    title: "Date",
+    valuesArray: [
+      { label: "Any Date", value: "all" },
+      { label: "Today", value: "today" },
+      { label: "Tomorrow", value: "tomorrow" },
+      { label: "This Week", value: "this-week" },
+      { label: "This Month", value: "this-month" },
+    ],
+  },
+};
+
+

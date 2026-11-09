@@ -1,3 +1,4 @@
+
 import PopularEvents from "@/components/card/PopularEvents";
 import type { Event } from "@/types";
 
@@ -34,7 +35,7 @@ const PopularEventsWrapper = async () => {
           <PopularEvents key={event.id} event={event} />
         ))}
       </div>
-      <button className=" w-full md:w-120 bg-primary font-medium text-base text-white py-3 px-4 rounded-md mx-auto my-14 block">
+      <button className=" cursor-pointer w-full md:w-120 bg-primary font-medium text-base text-white py-3 px-4 rounded-md mx-auto my-14 block">
         {" "}
         See all events
       </button>
