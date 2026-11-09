@@ -1,8 +1,16 @@
-import React from 'react'
+import { useState } from "react";
+import EventFilterModal from "@/components/modals/EventFilterModal";
+import { FiChevronDown } from "react-icons/fi";
+import { IoLocationOutline } from "react-icons/io5";
+import { Locations } from "@/data";
 
 const FilterByEvent = () => {
+  const [value, setValue] = useState<string>(Locations[0].value);
+
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   return (
- <div>
+    <div>
       <div className=" md:px-8 px-6 lg:px-18">
         <p className=" text-xl">Find an event in:</p>
         <button
@@ -28,7 +36,7 @@ const FilterByEvent = () => {
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default FilterByEvent
+export default FilterByEvent;
