@@ -20,6 +20,7 @@ const EventDetails = async ({
   const { id } = await params;
 
   const event = await getEventById(id);
+  console.log(event);
 
   if (!event) {
     throw new Error("Sorry an error occured ");
@@ -27,7 +28,10 @@ const EventDetails = async ({
   return (
     <div className="">
       <p className="py-6">
-        <Link href={"/discover"} className="text-gray-500">Discover</Link> /{" "}
+        <Link href={"/discover"} className="text-gray-500">
+          Discover
+        </Link>{" "}
+        /{" "}
         <span className="text-black text-lg font-semibold"> {event.title}</span>
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] md:gap-8 lg:gap-16 py-4">
@@ -69,7 +73,6 @@ const EventDetails = async ({
             </p>
           </div>
 
-        
           <div className="py-8 border-t-2">
             <h5 className="text-lg text-black font-black mb-3">
               About this event{" "}
@@ -78,7 +81,7 @@ const EventDetails = async ({
             <p className="text-gray-600">{event.description}</p>
           </div>
           <Addvert />
-         
+
           <div className="py-8 pb-10 border-b-2">
             <h5 className="text-lg text-black font-black mb-3">Direction </h5>
             <MapWrapper />

@@ -19,6 +19,7 @@
   --animate-slide-out: slide-out 300ms ease-in forwards;
   --animate-slide-up: slide-up 500ms ease-in-out forwards;
   --animate-slide-cycle: slide-cycle 5s ease-in-out infinite;
+  --animate-circle: circle 2s linear infinite;  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,6 +68,15 @@ body {
     opacity: 0;
   }
 }
+ @keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+  
+ }
 
 @keyframes slide-cycle {
   0% {

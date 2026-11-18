@@ -7,6 +7,7 @@ import { RiSearch2Line } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
 import clsx from "clsx";
+import Logo from "@/components/cell/Logo";
 
 const Header = () => {
   const pathname = usePathname();
@@ -24,15 +25,7 @@ const Header = () => {
   return (
     <div className="sticky top-0 z-50 backdrop-blur-md py-2">
       <div className="mx-auto flex max-w-8xl items-center justify-between px-2 sm:px-8 lg:px-18 py-3 md:gap-14">
-        <Link
-          href={"/"}
-          aria-label="TicketDays Home"
-          className="font-helvetica text-primary"
-        >
-          <p className=" py-2 px-4 md:px-0 text-xl md:text-2xl font-medium">
-            TicketDays
-          </p>
-        </Link>
+        <Logo />
 
         <div className="hidden items-center gap-22 lg:flex">
           <nav className="flex items-center gap-8 font-helvetica">

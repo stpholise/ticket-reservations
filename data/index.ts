@@ -1,11 +1,17 @@
-import { QuickLink, Event, TicketType, SocialLink, FooterLink } from "@/types";
+import { QuickLink, Event, TicketType, SocialLink, FooterLink,   } from "@/types";
 
 import {
   FaXTwitter,
   FaFacebookF,
   FaInstagram,
   FaTiktok,
+  FaRegCircleUser,
+  FaBriefcase 
 } from "react-icons/fa6";
+import { PiUserCircleThin, PiBriefcaseThin } from "react-icons/pi";
+ 
+
+
 
 export const navigations: QuickLink[] = [
   { title: "Discover events", url: "/discover" },
@@ -22,6 +28,8 @@ export const navigations: QuickLink[] = [
     url: "/about",
   },
 ];
+
+export const dashboardNav: QuickLink[]= []
 
 
  
@@ -352,3 +360,17 @@ export const filterOptions: Record<FilterType, FilterConfig> = {
 };
 
 
+export const accountTypes = [
+  {
+    id:"individual",
+    accountType: "Individual",
+    description: "Create and manage your personal events and tickets",
+    icon: PiUserCircleThin ,
+  },
+  {
+    id:"business",
+    accountType: "Business",
+    description: "Create and manage events for your business or organization",
+    icon: PiBriefcaseThin ,
+  },
+];

@@ -12,8 +12,7 @@ export function formatDate(date: string | null): string {
   });
 }
 
-
-export function formatDateDay(date: string | null) : string{
+export function formatDateDay(date: string | null): string {
   if (!date) return "Date not available";
 
   return new Date(date).toLocaleDateString("en-NG", {
@@ -23,13 +22,13 @@ export function formatDateDay(date: string | null) : string{
   });
 }
 
-export function formatDateTime(date: string | null) : string{
+export function formatDateTime(date: string | null): string {
   if (!date) return "Date not available";
 
   return new Date(date).toLocaleTimeString("en-NG", {
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "Africa/Lagos",
+    timeZone: "UTC",
     hour12: true,
   });
 }
