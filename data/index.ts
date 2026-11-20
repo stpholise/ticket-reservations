@@ -1,4 +1,4 @@
-import { QuickLink, Event, TicketType, SocialLink, FooterLink,   } from "@/types";
+import { QuickLink, Event, TicketType, SocialLink, FooterLink } from "@/types";
 
 import {
   FaXTwitter,
@@ -6,12 +6,9 @@ import {
   FaInstagram,
   FaTiktok,
   FaRegCircleUser,
-  FaBriefcase 
+  FaBriefcase,
 } from "react-icons/fa6";
 import { PiUserCircleThin, PiBriefcaseThin } from "react-icons/pi";
- 
-
-
 
 export const navigations: QuickLink[] = [
   { title: "Discover events", url: "/discover" },
@@ -29,10 +26,7 @@ export const navigations: QuickLink[] = [
   },
 ];
 
-export const dashboardNav: QuickLink[]= []
-
-
- 
+export const dashboardNav: QuickLink[] = [];
 
 const createdAt = "2026-10-01T09:00:00.000Z";
 const updatedAt = "2026-11-01T09:00:00.000Z";
@@ -222,7 +216,6 @@ export const events: Event[] = [
   },
 ];
 
-
 export const companyLinks: FooterLink[] = [
   {
     label: "Homepage",
@@ -265,40 +258,36 @@ export const socialLinks: SocialLink[] = [
   },
 ];
 
-
 export const Locations = [
-   {
+  {
     label: "Nigeria",
-    value: "nigeria"
-   },
-   {
+    value: "nigeria",
+  },
+  {
     label: "China",
-    value: "china"
-   },
-   {
+    value: "china",
+  },
+  {
     label: "Uk",
-    value: "uk"
-   },
-   {
+    value: "uk",
+  },
+  {
     label: "Rwanda",
-    value: "rwanda"
-   },
-   {
+    value: "rwanda",
+  },
+  {
     label: "Kenya",
-    value: "kenya"
-   },
-   {
+    value: "kenya",
+  },
+  {
     label: "South Africa",
-    value: "south_africa"
-   },
-   {
+    value: "south_africa",
+  },
+  {
     label: "Senegal",
-    value: "senegal"
-   },
-   
-]
-
-
+    value: "senegal",
+  },
+];
 
 export const eventCategories = [
   { label: "All Events", value: "all" },
@@ -308,9 +297,8 @@ export const eventCategories = [
   { label: "Career & Business", value: "career-business" },
   { label: "Spirituality & Religion", value: "spirituality-religion" },
   { label: "Food & Drink", value: "food-drink" },
-] as const
+] as const;
 export type EventCategory = (typeof eventCategories)[number]["value"];
-
 
 export type FilterType = "category" | "price" | "date";
 
@@ -359,18 +347,19 @@ export const filterOptions: Record<FilterType, FilterConfig> = {
   },
 };
 
-
 export const accountTypes = [
   {
-    id:"individual",
+    id: "individual",
+    type: "individual",
     accountType: "Individual",
     description: "Create and manage your personal events and tickets",
-    icon: PiUserCircleThin ,
+    icon: PiUserCircleThin,
   },
   {
-    id:"business",
+    id: "business",
+    type: "business",
     accountType: "Business",
     description: "Create and manage events for your business or organization",
-    icon: PiBriefcaseThin ,
+    icon: PiBriefcaseThin,
   },
 ];

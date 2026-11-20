@@ -16,9 +16,9 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <HeaderWrapper />
+      {/* <HeaderWrapper /> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -53,13 +53,13 @@ const Header = () => {
               <RiSearch2Line className="text-black size-6" />
             </button>
             <Link
-              href={"/"}
+              href={"/login"}
               className="hover:text-primary transition-colors duration-300"
             >
               Login
             </Link>
             <Link
-              href={"/"}
+              href={"/signup"}
               className="whitespace-nowrap py-2 px-5 rounded-md bg-primary text-white font-medium"
             >
               Sign Up
@@ -118,13 +118,13 @@ const Header = () => {
               ))}
               <div className="flex items-center gap-6 text-black mt-auto py-8 px-4 w-full ">
                 <Link
-                  href={"/"}
+                  href={"/login"}
                   className="w-1/2 hover:text-primary transition-colors duration-300 py-2 text-center"
                 >
                   Login
                 </Link>
                 <Link
-                  href={"/"}
+                  href={"/sinup"}
                   className=" whitespace-nowrap  py-2 px-5 w-1/2 rounded-md bg-primary text-white font-medium"
                 >
                   Sign Up
