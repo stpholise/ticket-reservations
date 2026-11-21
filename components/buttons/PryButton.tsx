@@ -5,13 +5,18 @@ const PryButton = ({
   text,
   onClick,
   className,
+  disabled,
+  type = "button",
 }: {
   text: string;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }) => {
   return (
     <button
+    disabled={disabled}
       onClick={onClick}
       className={twMerge(
         clsx(

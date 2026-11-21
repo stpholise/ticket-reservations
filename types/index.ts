@@ -73,3 +73,18 @@ export interface FooterLink {
 export interface SocialLink extends FooterLink {
   icon: IconType;
 }
+
+export type AccountType = "individual" | "business";
+
+export interface SignupValues {
+  accountType: AccountType | "";
+  location: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  organizationName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  how: string;
+}

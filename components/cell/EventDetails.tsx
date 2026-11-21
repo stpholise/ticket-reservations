@@ -10,7 +10,7 @@ import {
 } from "react-icons/io5";
 import { formatDateDay, formatDateTime } from "@/lib";
 
-import { getEventById } from "@/app/discover/components/fetchEvents";
+import { getEventById } from "@/app/(public)/discover/components/fetchEvents";
 
 const EventDetails = async ({
   params,
